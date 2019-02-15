@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import { FETCH_RECIPE } from "./../actions";
+// import { FETCH_RECIPE } from "./../actions";
 
 import uniqid from "uniqid";
 import { getRecipe } from "../actions/index";
@@ -126,7 +126,7 @@ export class Recipes extends Component {
     const recipes = this.props.recipes;
     return _.map(recipes, el => {
       return (
-        <div className="col span-1-of-5 recipes__list">
+        <div className="col span-1-of-5 recipes__list" key={uniqid()}>
           <ul className="recipes__ul">{this.createLi(el)}</ul>
         </div>
       );
@@ -209,9 +209,19 @@ export class Recipes extends Component {
   render() {
     // const { recipes } = this.props;
     // console.log(this.props.recipes);
+    let recipesContent;
     if (this.props.recipes) {
-      return <div className="recipes__container">{this.createUl()}</div>;
+      recipesContent = (
+        <div className="recipes__container">{this.createUl()}</div>
+      );
     }
+    return (
+      <section className="recipes__section">
+        <h2>Recipes</h2>
+        {/* <div class="recipes"></div> */}
+        <div className="recipes">{recipesContent}</div>
+      </section>
+    );
   }
 }
 

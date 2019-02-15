@@ -1,7 +1,7 @@
 import { FETCH_RECIPES, FETCH_RECIPE } from "../actions";
 import _ from "lodash";
 
-import uniqid from "uniqid";
+// import uniqid from "uniqid";
 
 export default function(state = [], action) {
   switch (action.type) {
@@ -52,8 +52,8 @@ export default function(state = [], action) {
 
       // return tempArr;
       return tempObj;
-      // syntax: return _.mapKeys(action.payload.data, "id");
-      break;
+    // syntax: return _.mapKeys(action.payload.data, "id");
+
     // case FETCH_RECIPE:
     //   // return action.payload.data.recipes;
     //   // return {
@@ -67,7 +67,6 @@ export default function(state = [], action) {
     // return action.payload.data.recipe;
     default:
       return state;
-      break;
   }
 }
 

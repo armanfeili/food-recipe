@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getRecipes } from "../actions";
 
+import video from "../style/img/FoodPack.mp4";
+
 export class SearchInput extends Component {
   constructor(props) {
     super(props);
@@ -29,26 +31,33 @@ export class SearchInput extends Component {
 
   render() {
     return (
-      <div>
-        <div className="search">
-          <h1 className="search__heading">Search for any food here</h1>
-          <form onSubmit={this.onSubmitForm}>
-            <input
-              value={this.state.term}
-              onChange={
-                // event will pass by default to thease functions "onClick(),onChange(),onScroll()..."
-                // and we don't need to pass them by ourselves. so we just write: this.onInputChange without parenthesis.
-                this.onInputChange
-                // or // event => {this.setState({ term: event.target.value });
-              }
-              className="search__input"
-              type="text"
-              placeholder="search for recipes..."
-            />
-            <button className="search__btn">Search</button>
-          </form>
+      <header className="top__part">
+        <div className="search__bar row">
+          <div className="search">
+            <h1 className="search__heading">Search for any food here</h1>
+            <form onSubmit={this.onSubmitForm}>
+              <input
+                value={this.state.term}
+                onChange={
+                  // event will pass by default to thease functions "onClick(),onChange(),onScroll()..."
+                  // and we don't need to pass them by ourselves. so we just write: this.onInputChange without parenthesis.
+                  this.onInputChange
+                  // or // event => {this.setState({ term: event.target.value });
+                }
+                className="search__input"
+                type="text"
+                placeholder="search for recipes..."
+              />
+              <button className="search__btn">Search</button>
+            </form>
+          </div>
         </div>
-      </div>
+        <video loop muted autoPlay className="fullscreen__bg__video">
+          <source src={video} type="video/webm" />
+          <source src={video} type="video/mp4" />
+          <source src={video} type="video/ogg" />
+        </video>
+      </header>
     );
   }
 }

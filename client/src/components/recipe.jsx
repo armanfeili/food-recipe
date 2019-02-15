@@ -42,8 +42,9 @@ export class Recipe extends Component {
     const { recipe } = this.props;
 
     // console.log(recipe);
+    let recipeContent;
     if (recipe.title) {
-      return (
+      recipeContent = (
         <div className="recipe__part row">
           <figure className="recipe__image">
             <img
@@ -67,7 +68,13 @@ export class Recipe extends Component {
         </div>
       );
     }
-    return 0;
+    return (
+      <section className="detail__section">
+        <h2>Details</h2>
+        <div className="recipe__details">{recipeContent}</div>
+      </section>
+    );
+    // return 0;
   }
 }
 
