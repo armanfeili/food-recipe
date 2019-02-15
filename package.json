@@ -19,11 +19,8 @@
     "ws": "3.3.2"
   },
   "dependencies": {
-    "babel-preset-stage-1": "^6.1.18",
-    "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.12",
-    "validator": "^10.11.0"
+    "mongoose": "^5.4.12"
   }
 }
